@@ -64,7 +64,7 @@ public class DataInitializer implements CommandLineRunner {
                 new BigDecimal("6499.00"),
                 15,
                 "Furniture",
-                "https://images.unsplash.com/photo-1580481077195-c2666a505f4f?w=500&q=80"
+                "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80"
         );
 
         Product p5 = new Product(
@@ -78,9 +78,11 @@ public class DataInitializer implements CommandLineRunner {
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-        // 2. Seed Default User Wallet
-        Wallet wallet = new Wallet("jyoti@paypulse.io", new BigDecimal("15000.00"));
-        walletRepository.save(wallet);
+        // 2. Seed Default User Wallet if not present
+        if (walletRepository.findByUserEmail("jyoti@paypulse.io").isEmpty()) {
+            Wallet wallet = new Wallet("jyoti@paypulse.io", new BigDecimal("15000.00"));
+            walletRepository.save(wallet);
+        }
 
         // 3. Seed Initial Orders to demonstrate the workflow
         CreateOrderRequest ord1 = new CreateOrderRequest();

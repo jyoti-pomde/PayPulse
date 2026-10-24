@@ -19,7 +19,15 @@ export default function ProductCatalog({ products, onBuyProduct, purchasingId })
           return (
             <div key={product.id} className="product-card">
               <div className="product-image-container">
-                <img src={product.imageUrl} alt={product.name} className="product-image" />
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className="product-image"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80';
+                  }}
+                />
                 <span className="product-category-badge">{product.category}</span>
               </div>
 
