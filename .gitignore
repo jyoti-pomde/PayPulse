@@ -1,0 +1,25 @@
+# Compiled class files & build directories
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Node modules & build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDEs & OS files
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+*.log
